@@ -16,3 +16,28 @@ Les profils permettent d'avoir des configurations adaptées à différents envir
 
 6. En quoi la dépendance DevTools est-elle bénéfique pour le développement ?
 Spring Boot DevTools améliore la productivité en activant le rechargement automatique des modifications, évitant ainsi de redémarrer manuellement l'application après chaque changement de code.
+
+JOUR-02 :
+
+1. Comment le modèle MVC aide-t-il à structurer une application web ?
+   Le modèle MVC (Modèle-Vue-Contrôleur) sépare une application en trois couches : le modèle gère les données et la
+   logique métier, la vue affiche ces données à l'utilisateur, et le contrôleur traite les requêtes et met à jour le
+   modèle et la vue. Cela facilite la maintenance et la scalabilité de l'application.
+
+2. Quelle est la différence entre Thymeleaf et les templates HTML classiques ?
+   Thymeleaf est un moteur de templates qui permet d'afficher dynamiquement des données dans les vues, en intégrant
+   directement les variables du backend Spring Boot. Contrairement aux templates HTML classiques, il ne nécessite pas de
+   JavaScript ou d'autres technologies côté client pour insérer du contenu dynamique.
+
+3. Comment pouvez-vous passer des données d'un contrôleur à une vue dans Spring ?
+   Spring Boot utilise l'objet Model pour transmettre des données du contrôleur à la vue. En ajoutant des attributs à
+   cet objet dans le contrôleur, ils deviennent accessibles dans le template Thymeleaf correspondant.
+
+4. Comment Spring facilite-t-il la gestion des formulaires ?
+   Spring Boot prend en charge la gestion des formulaires grâce à l'annotation @ModelAttribute pour lier automatiquement
+   les données du formulaire à un objet Java, @RequestParam pour récupérer des valeurs individuelles et @PostMapping
+   pour gérer les soumissions. Il permet aussi de valider les entrées utilisateur facilement.
+
+5. Comment Spring permet-il la validation des données du formulaire ?
+   Spring intègre la validation des formulaires avec les annotations de Java Bean Validation (@NotNull, @Min, @Size,
+   etc.), associées à @Valid et BindingResult pour capturer et afficher les erreurs directement dans la vue Thymeleaf.

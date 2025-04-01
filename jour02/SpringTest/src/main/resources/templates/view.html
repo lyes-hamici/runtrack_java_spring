@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mon Top 4 des Monstres - Monster Hunter</title>
+</head>
+<body>
+<h1 th:text="${message}">Message par défaut</h1>
+
+<ul>
+    <li th:each="item : ${items}" th:text="${item}">Item</li>
+</ul>
+
+<form action="#" method="post" th:action="@{/view}" th:object="${user}">
+    <label for="name">Votre nom :</label>
+    <input id="name" placeholder="Entrez votre nom" required th:field="*{name}" type="text"/>
+
+    <label for="age">Votre âge :</label>
+    <input id="age" placeholder="Entrez votre âge" required th:field="*{age}" type="number"/>
+
+    <div style="color: red;" th:if="${#fields.hasErrors('age')}">
+        <ul>
+            <li th:each="err : ${#fields.errors('age')}" th:text="${err}"></li>
+        </ul>
+    </div>
+
+    <button type="submit">Soumettre</button>
+</form>
+
+<div th:if="${welcomeMessage != null}">
+    <p th:text="${welcomeMessage}"></p>
+</div>
+</body>
+</html>
