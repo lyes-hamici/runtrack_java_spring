@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${person.id != null ? 'Modifier une Personne' : 'Ajouter une Personne'}"></title>
+</head>
+<body>
+<h2 th:text="${person.id != null ? 'Modifier une Personne' : 'Ajouter une Personne'}"></h2>
+<form method="post" th:action="@{/persons/save}" th:object="${person}">
+    <input th:field="*{id}" type="hidden"/>
+
+    <label>Nom:</label>
+    <input required th:field="*{name}" type="text"/>
+
+    <label>Âge:</label>
+    <input required th:field="*{age}" type="number"/>
+
+    <button type="submit">Enregistrer</button>
+</form>
+
+<a href="/persons">Retour à la liste</a>
+</body>
+</html>
