@@ -41,3 +41,33 @@ JOUR-02 :
 5. Comment Spring permet-il la validation des données du formulaire ?
    Spring intègre la validation des formulaires avec les annotations de Java Bean Validation (@NotNull, @Min, @Size,
    etc.), associées à @Valid et BindingResult pour capturer et afficher les erreurs directement dans la vue Thymeleaf.
+
+JOUR-03 :
+
+1. Qu'est-ce que JPA et comment facilite-t-il l'accès aux bases de données ?
+   JPA (Java Persistence API) est une spécification qui facilite la gestion des bases de données relationnelles en Java.
+   Il permet d'utiliser des objets Java pour interagir avec les bases de données sans écrire de requêtes SQL manuelles,
+   en s'appuyant sur un ORM (Object-Relational Mapping) comme Hibernate.
+
+2. Pourquoi les bases de données en mémoire, comme H2, sont-elles utiles pendant le développement ?
+   Les bases en mémoire comme H2 permettent de tester rapidement une application sans avoir besoin d'une configuration
+   complexe. Elles sont légères, rapides et se réinitialisent à chaque redémarrage, ce qui est idéal pour les tests et
+   le développement.
+
+3. Quelle est l'importance des annotations, telles que @Entity, dans le contexte de JPA ?
+   L'annotation @Entity indique qu'une classe Java représente une table dans la base de données. Elle permet à JPA de
+   gérer automatiquement la persistance de cette classe, en générant les requêtes nécessaires pour stocker, récupérer et
+   manipuler les données.
+
+4. Comment Spring Data facilite-t-il la création de requêtes de base de données ?
+   Spring Data JPA permet de définir des interfaces qui étendent JpaRepository sans écrire de requêtes SQL. Il génère
+   automatiquement les implémentations des méthodes CRUD et permet d'écrire des requêtes personnalisées avec des
+   méthodes comme findByName(String name).
+
+5. Comment pouvez-vous créer et lire des entités avec Spring Data JPA ?
+   Pour créer une entité, il suffit d'appeler save(entity) sur le repository. Pour lire les entités, on utilise des
+   méthodes comme findAll() pour récupérer toutes les entrées ou findById(id) pour en récupérer une spécifique.
+
+6. Comment la méthode save de Spring Data JPA peut-elle être utilisée à la fois pour la création et la mise à jour ?
+   La méthode save() de JpaRepository ajoute une nouvelle entité si son ID est null ou inexistant, et met à jour une
+   entité existante si son ID est déjà présent dans la base, facilitant ainsi la gestion des opérations CRUD.
