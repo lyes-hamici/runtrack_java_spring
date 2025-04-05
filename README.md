@@ -71,3 +71,27 @@ JOUR-03 :
 6. Comment la méthode save de Spring Data JPA peut-elle être utilisée à la fois pour la création et la mise à jour ?
    La méthode save() de JpaRepository ajoute une nouvelle entité si son ID est null ou inexistant, et met à jour une
    entité existante si son ID est déjà présent dans la base, facilitant ainsi la gestion des opérations CRUD.
+
+JOUR-04:
+
+1. Pourquoi est-il conseillé de séparer la logique métier des contrôleurs ?
+   Séparer la logique métier des contrôleurs permet d’avoir un code plus clair, modulaire et maintenable. Le contrôleur
+   gère uniquement les requêtes HTTP tandis que le service contient les règles métier, ce qui facilite les tests et
+   l’évolution du code.
+
+2. Quels sont les avantages d'utiliser Spring Security pour protéger une application ?
+   Spring Security offre une solution complète et flexible pour l'authentification et l'autorisation. Il permet de
+   sécuriser facilement les endpoints, d’ajouter des rôles, de gérer les sessions et de se protéger contre des attaques
+   comme CSRF ou XSS.
+
+3. Comment personnaliser le formulaire de connexion avec Spring Security ?
+   Il suffit de créer une page HTML personnalisée pour la connexion et de configurer http.formLogin().loginPage("
+   /login") dans la classe de configuration Spring Security pour utiliser cette page à la place de celle par défaut.
+
+4. Comment Spring Security gère-t-il les autorisations basées sur les rôles ?
+   Spring Security utilise les annotations comme @PreAuthorize ou la méthode http.authorizeRequests() pour restreindre
+   l'accès aux ressources en fonction des rôles attribués aux utilisateurs (ex : hasRole("ADMIN")).
+
+5. Comment stocker en toute sécurité les mots de passe des utilisateurs avec Spring Security ?
+   Spring Security recommande d'utiliser un encodeur de mots de passe comme BCryptPasswordEncoder. Ce dernier chiffre
+   les mots de passe avant de les stocker dans la base, ce qui les rend inutilisables en cas de fuite.
