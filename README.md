@@ -95,3 +95,53 @@ JOUR-04:
 5. Comment stocker en toute sécurité les mots de passe des utilisateurs avec Spring Security ?
    Spring Security recommande d'utiliser un encodeur de mots de passe comme BCryptPasswordEncoder. Ce dernier chiffre
    les mots de passe avant de les stocker dans la base, ce qui les rend inutilisables en cas de fuite.
+
+JOUR-05 :
+
+1. Quel est le principal avantage de Thymeleaf par rapport à d'autres moteurs de templates comme JSP ?
+   Thymeleaf permet d’éditer et de prévisualiser les pages HTML directement dans un navigateur sans serveur, car ses
+   templates sont valides HTML. Cela améliore la collaboration avec les designers et rend le développement plus fluide.
+
+2. Comment liez-vous une liste d'objets à une vue Thymeleaf ?
+   Il suffit de passer la liste au modèle dans le contrôleur (model.addAttribute("personnes", liste)), puis d'utiliser
+   une boucle dans le template avec th:each="person : ${personnes}" pour afficher chaque élément.
+
+3. Comment liez-vous un objet à un formulaire Thymeleaf ?
+   En utilisant th:object="${person}" sur le formulaire et th:field="*{nom}" sur les champs, on lie automatiquement les
+   champs HTML aux propriétés de l’objet Person.
+
+4. Comment Thymeleaf gère-t-il les messages d'erreur de validation ?
+   Thymeleaf peut afficher les erreurs avec des balises comme th:errors="*{nom}" ou #fields.hasErrors(). Il s’intègre
+   facilement avec Spring Validation pour montrer les messages liés à chaque champ.
+
+5. Comment pouvez-vous accéder à l'utilisateur actuellement connecté dans une vue Thymeleaf ?
+   Grâce à l'objet #authentication de Spring Security, on peut afficher le nom de l'utilisateur connecté avec
+   ${#authentication.name} dans n'importe quelle vue.
+
+6. Dans quels scénarios Spring Web Flow est-il particulièrement utile ?
+   Spring Web Flow est utile pour gérer des processus complexes multi-étapes avec état, comme un panier d’achat, un
+   processus d’inscription ou une demande de prêt, où les étapes doivent être suivies dans un ordre défini.
+
+7. Comment définissez-vous les états et transitions dans un flux de travail Spring Web Flow ?
+   On les définit dans un fichier XML ou en Java Config. Chaque état (<view-state>, <action-state>) représente une
+   étape, et les transitions (<transition>) spécifient vers quel état aller selon une action utilisateur.
+
+8. Comment liez-vous une vue Thymeleaf à une étape spécifique d'un flux Spring Web Flow ?
+   Chaque état de vue (<view-state>) fait référence à un nom de vue Thymeleaf. Spring Web Flow rend cette vue avec les
+   données du flux automatiquement injectées dans le modèle.
+
+9. Comment configurez-vous une page d'erreur personnalisée avec Thymeleaf et Spring Boot ?
+   Il suffit de créer des fichiers comme error/404.html ou error/500.html dans src/main/resources/templates. Spring Boot
+   les affichera automatiquement en cas d’erreur correspondante.
+
+10. Comment incluez-vous un fragment Thymeleaf dans une vue ?
+    On utilise la syntaxe th:replace="fragments/header :: header" ou th:insert, où fragments/header.html contient une
+    section nommée th:fragment="header".
+
+11. Où devriez-vous placer vos ressources statiques dans un projet Spring Boot ?
+    Les fichiers CSS, JS et images doivent être placés dans src/main/resources/static. On peut ensuite les référencer
+    avec /css/style.css, /js/app.js, etc.
+
+12. Comment Thymeleaf peut-il être utilisé pour charger du contenu de manière asynchrone ?
+    Bien que Thymeleaf soit côté serveur, on peut combiner des fragments avec des requêtes AJAX (via JavaScript/Fetch)
+    pour charger dynamiquement des parties de page. Le serveur renvoie un fragment Thymeleaf à insérer dans le DOM.
